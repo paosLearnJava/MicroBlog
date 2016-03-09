@@ -1,0 +1,15 @@
+CREATE TABLE public."News"
+(
+  news_id bigint[] NOT NULL,
+  publicer_id bigint[] NOT NULL,
+  review_count integer,
+  retrans_count integer,
+  public_date timestamp with time zone[] NOT NULL,
+  like_count integer,
+  CONSTRAINT news_key PRIMARY KEY (news_id, publicer_id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public."News"
+  OWNER TO postgres;
