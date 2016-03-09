@@ -1,0 +1,15 @@
+CREATE TABLE public."LoginAcked"
+(
+  ack_email character varying[] NOT NULL,
+  is_valued boolean,
+  "Out_time" timestamp with time zone,
+  CONSTRAINT "LoginAcked_pkey" PRIMARY KEY (ack_email),
+  CONSTRAINT "LoginAcked_ack_email_fkey" FOREIGN KEY (ack_email)
+      REFERENCES public.user_sign (email) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public."LoginAcked"
+  OWNER TO postgres;
